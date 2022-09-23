@@ -12,5 +12,5 @@ jobs:
           project_id: lateral-rider-273116
           image_name: backend-test
           image_tag: latest,v1
-          dockerfile: ./docker/Dockerfile
+          dockerfile: ./Dockerfile
           context: ./docker
