@@ -1,7 +1,7 @@
 name: Push to GCR GitHub Action
 on: [push]
 jobs:
-  build-and-push-to-gcr:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -11,6 +11,6 @@ jobs:
           registry: gcr.io
           project_id: lateral-rider-273116
           image_name: backend-test
-          image_tag: latest,v1
+          image_tag: v1
           dockerfile: ./Dockerfile
-          context: ./docker
+          #context: ./docker
