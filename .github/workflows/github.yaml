@@ -1,5 +1,8 @@
 name: Push to GCR
-on: [push]
+on:
+  push:
+    tags:
+      - "*"
 jobs:
   build:
     runs-on: ubuntu-latest
