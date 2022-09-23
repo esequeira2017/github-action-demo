@@ -8,7 +8,7 @@ jobs:
       - uses: RafikFarhad/push-to-gcr-github-action@v4.1
         with:
           gcloud_service_key: ${{ secrets.GCLOUD_SERVICE_KEY }} # can be base64 encoded or plain text
-          registry: gcr.io
+          registry: gcr.io/lateral-rider-273116
           project_id: lateral-rider-273116
           image_name: backend-test
           image_tag: v1
