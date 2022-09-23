@@ -1,16 +1,22 @@
-name: Push to GCR GitHub Action
-on: [push]
+name: Push to GCR
+on:
+  push:
+    tags:
+      - "*"
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Get tag
+        id: get_tag
+        run: echo ::set-output name=GIT_TAG_NAME::${GITHUB_REF/refs\/tags\//}
       - uses: RafikFarhad/push-to-gcr-github-action@v4.1
         with:
-          gcloud_service_key: ${{ secrets.GCLOUD_SERVICE_KEY }} # can be base64 encoded or plain text
+          gcloud_service_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
           registry: gcr.io
           project_id: lateral-rider-273116
           image_name: chat
-          image_tag: v101
+          image_tag: ${{ steps.get_tag.outputs.GIT_TAG_NAME }}
           dockerfile: ./Dockerfile
-          #context: ./docker
+          context: .
