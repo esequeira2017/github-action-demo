@@ -16,7 +16,7 @@ jobs:
           gcloud_service_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
           registry: gcr.io
           project_id: lateral-rider-273116
-          image_name: chat
+          image_name: files
           image_tag: ${{ steps.get_tag.outputs.GIT_TAG_NAME }}
           dockerfile: ./Dockerfile
           context: .
